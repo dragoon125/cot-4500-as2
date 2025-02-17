@@ -1,13 +1,7 @@
-#import numpy as np
-
 # Neville's method
-#x =  [1, 1.3, 1.6, 1.9, 2.2] #notes
-#val = [.7651977, .6200860, .4554022, .2818186, .1103623]
-#w = 1.5
 x = [3.6, 3.8, 3.9]
 val = [1.675, 1.436, 1.318]
 w = 3.7
-
 
 neville = [[0.0 for _ in range(len(x))] for _ in range(len(x))]
 
@@ -32,8 +26,6 @@ for i in range(len(x)):
 print()
 
 # Newton's forward method
-#xi = [1, 1.3, 1.6, 1.9, 2.2] #notes
-#fxi = [.7651977, .6200860, .4554022, .2818186, .1103623]
 xi = [7.2, 7.4, 7.5, 7.6]
 fxi = [23.5492, 25.3913, 26.8224, 27.4589]
 
@@ -59,12 +51,10 @@ for i in range(lim):
 print()
     
 # Divided difference Hermite Polynomial approximation matrix
-#x = [3.6, 3.8, 3.9]
-#fx = [1.675, 1.436, 1.318]
-#fxi = [-1.195, -1.188, -1.182] #my own thing
-x = [1.3, 1.3, 1.6, 1.6, 1.9, 1.9]
-fx = [0.6200860, 0.6200860, 0.4554022, 0.4554022, 0.2818186, 0.2818186]
-fxi = [-0.5220232, -0.5220232, -0.5698959, -0.5698959, -0.5811571, -0.5811571]
+x = [3.6, 3.8, 3.9]
+fx = [1.675, 1.436, 1.318]
+fxi = [-1.195, -1.188, -1.182] #my own thing
+
 
 lim = len(x)
 diffs = [[0.0 for _ in range(lim)] for _ in range(lim)]
