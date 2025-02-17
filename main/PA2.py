@@ -49,7 +49,35 @@ for i in range(lim):
     print(']')
 
 print()
-    
+
+# f(7.3)
+
+x = [7.2, 7.4, 7.5, 7.6]
+val = [23.5492, 25.3913, 26.8224, 27.458]
+w = 7.3
+
+neville = [[0.0 for _ in range(len(x))] for _ in range(len(x))]
+
+for i in range(len(x)):
+    neville [i][0] = val[i]
+
+for i in range(1, len(x)):
+    for j in range(1, i+1):
+        term1 = (w - x[i - j]) * neville[i][j - 1]
+        term2 = (w - x[i]) * neville[i - 1][j - 1]
+
+        neville[i][j] = (term1 - term2) / (x[i] - x[i - j])
+
+for i in range(len(x)):
+    for j in range(i + 1):
+        #print(format(neville[i][j], '.7f'), end=' ')
+        if(i == 1):
+            if(j == i):
+                print(format(neville[i][j]))
+    #print()
+
+print()
+
 # Divided difference Hermite Polynomial approximation matrix
 x = [3.6, 3.8, 3.9]
 fx = [1.675, 1.436, 1.318]
