@@ -74,7 +74,7 @@ print()
 # Divided difference Hermite Polynomial approximation matrix
 x = [3.6, 3.8, 3.9]
 fx = [1.675, 1.436, 1.318]
-fxi = [-1.195, -1.188, -1.182] #my own thing
+fxi = [-1.195, -1.188, -1.182]
 
 lim = len(x)
 diffs = [[0.0 for _ in range(lim)] for _ in range(lim)]
