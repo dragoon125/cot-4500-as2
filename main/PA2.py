@@ -72,9 +72,9 @@ for i in range(len(x)):
 print()
 
 # Divided difference Hermite Polynomial approximation matrix
-x = [3.6, 3.8, 3.9]
-fx = [1.675, 1.436, 1.318]
-fxi = [-1.195, -1.188, -1.182]
+x = [3.6, 3.6, 3.8, 3.8, 3.9, 3.9]
+fx = [1.675, 1.675, 1.436, 1.436, 1.318, 1.318]
+fxi = [-1.195, -1.195, -1.188, -1.188, -1.182, -1.182]
 
 lim = len(x)
 diffs = [[0.0 for _ in range(lim)] for _ in range(lim)]
@@ -85,12 +85,26 @@ for i in range(lim):
 for i in range(lim):
     diffs[i][1] = fx[i]
 
-for i in range(lim):
-    for j in range (2):
-        print(diffs[i][j], end=' ')
-    print();
+for i in range(1, lim):
+    if x[i] == x[i-1]:  
+        diffs[i][2] = fxi[i]  
+    else:
+        diffs[i][2] = (diffs[i][1] - diffs[i-1][1]) / (x[i] - x[i-1])
 
-count = 0
+for j in range(3, lim):
+    for i in range(j, lim): 
+        diffs[i][j] = (diffs[i][j-1] - diffs[i-1][j-1]) / (x[i] - x[i-j+1])
+
+count = 3
+for i in range(lim):
+    print('[', end=' ')
+    for j in range(i+2):
+        if (j < 5):
+            print(format(diffs[i][j], '.8f'), end=' ')
+    for k in range(count):
+        print(format(0, '.8f'), end=' ')
+    count -= 1
+    print(']')
 print()
 
 # cubic spline interpolation
