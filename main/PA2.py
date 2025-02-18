@@ -17,7 +17,6 @@ for i in range(1, len(x)):
 
 for i in range(len(x)):
     for j in range(i + 1):
-        #print(format(neville[i][j], '.7f'), end=' ')
         if(i == 1):
             if(j == i):
                 print(format(neville[i][j]))
@@ -39,15 +38,12 @@ for i in range(1, lim):
     for j in range(1, i + 1):
         diffs[i][j] = (diffs[i][j-1] - diffs[i-1][j-1]) / (xi[i] - xi[i - j])
 
-#print('divided difference table:')
 for i in range(lim):
-    print('[', end='')
     for j in range(i + 1):
-        if diffs[i][j] >= 0:
-            print(end=' ')
-        print(format(diffs[i][j], '.7f'), end=' ')
-    print(']')
-
+        #if(i == 1):
+        if(j == i and i > 0):
+            if(i <= 3):
+                print(format(diffs[i][j]))
 print()
 
 # f(7.3)
@@ -70,19 +66,15 @@ for i in range(1, len(x)):
 
 for i in range(len(x)):
     for j in range(i + 1):
-        #print(format(neville[i][j], '.7f'), end=' ')
         if(i == 1):
             if(j == i):
                 print(format(neville[i][j]))
-    #print()
-
 print()
 
 # Divided difference Hermite Polynomial approximation matrix
 x = [3.6, 3.8, 3.9]
 fx = [1.675, 1.436, 1.318]
 fxi = [-1.195, -1.188, -1.182] #my own thing
-
 
 lim = len(x)
 diffs = [[0.0 for _ in range(lim)] for _ in range(lim)]
@@ -101,7 +93,6 @@ for i in range(lim):
 count = 0
 
 # cubic spline interpolation
-
 temp = [
         [1.0,  0.0,   0.0,   0.0],
         [3.0, 12.0,   3.0,   0.0],
