@@ -91,6 +91,7 @@ for i in range(lim):
     print();
 
 count = 0
+print()
 
 # cubic spline interpolation
 temp = [
